@@ -3,7 +3,7 @@ animation_mode = 'None' #['None', '2D', '3D', 'Video Input']
 #Описание
 text_prompts = {
 #    0: ["Crossout::2", "car, detailed, octane renderer, cyberpunk, 3d", "blur::-1"],
-    0: ["A photo-real portrait girl, octane renderer, ultra detailed, 4k"],
+#    0: ["A photo-real portrait girl, octane renderer, ultra detailed, 4k"],
 #    0: ["technical drawing of a atom, detailed map, notes, blueprint, black and white, old, erosion, stains"],
 #    0: ["A photo-real meat chair, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering, trending on cgsociety:2",
 #            "text, words, signatures:-1"],
@@ -16,8 +16,8 @@ text_prompts = {
 #    0: ["A photo-real a Crossout, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering:3",
 #            "text, words, blur:-1",
 #            "signatures:-1"],
-#    0: ["A photo-real delicate ceramic porcelain sculpture of an ornate detailed kitsune in front of a intricate background by Victo Ngai and takato yamamoto, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering, japanese pottery, trending on cgsociety:2",
-#            "text, words, signatures:-1"],
+    0: ["A photo-real delicate ceramic porcelain sculpture of an ornate detailed kitsune in front of a intricate background by Victo Ngai and takato yamamoto, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering, japanese pottery, trending on cgsociety:2",
+            "text, words, signatures:-1"],
 }
 image_prompts = {
      #0:['Nikita-Buyanov.jpg:5',],
