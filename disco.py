@@ -3223,7 +3223,7 @@ else:
         '-c:v',
         'libx264',
         '-vf',
-        f'fps={fps}',
+#        f'fps={fps}',
         '-pix_fmt',
         'yuv420p',
         '-crf',
