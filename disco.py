@@ -24,6 +24,7 @@ image_prompts = {
 }
 
 #Метод none
+n_batches = 1
 steps = 100 
 width_height_for_512x512_models = [625, 1224] 
 clip_guidance_scale = 21000
@@ -82,9 +83,8 @@ use_secondary_model = False
 diffusion_sampling_mode = 'ddim'
 custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'
 use_checkpoint = True
-check_model_SHA = False
+check_model_SHA = True
 display_rate = 10
-n_batches = 50
 perlin_init = False
 perlin_mode = 'mixed'
 set_seed = 'random_seed'
