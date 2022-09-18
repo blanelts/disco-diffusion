@@ -24,7 +24,7 @@ image_prompts = {
 }
 
 #Метод none
-steps = 300 
+steps = 100 
 width_height_for_512x512_models = [625, 1224] 
 clip_guidance_scale = 21000
 tv_scale = 30000
