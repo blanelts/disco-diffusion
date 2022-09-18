@@ -25,7 +25,7 @@ image_prompts = {
 
 #Метод none
 n_batches = 1
-steps = 100 
+steps = 10 
 width_height_for_512x512_models = [625, 1224] 
 clip_guidance_scale = 21000
 tv_scale = 30000
@@ -3233,13 +3233,13 @@ else:
         filepath
     ]
 
-    process = subprocess.Popen(cmd, cwd=f'{batchFolder}', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    stdout, stderr = process.communicate()
-    if process.returncode != 0:
-        print(stderr)
-        raise RuntimeError(stderr)
-    else:
-        print("The video is ready and saved to the images folder")
+#    process = subprocess.Popen(cmd, cwd=f'{batchFolder}', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+#    stdout, stderr = process.communicate()
+#    if process.returncode != 0:
+#        print(stderr)
+#        raise RuntimeError(stderr)
+#    else:
+#        print("The video is ready and saved to the images folder")
 
     # if view_video_in_cell:
     #     mp4 = open(filepath,'rb').read()
