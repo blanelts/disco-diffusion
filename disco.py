@@ -1,3 +1,146 @@
+#Выбор метода
+animation_mode = 'None' #['None', '2D', '3D', 'Video Input']
+#Описание
+text_prompts = {
+#    0: ["Crossout::2", "car, detailed, octane renderer, cyberpunk, 3d", "blur::-1"],
+    0: ["A photo-real portrait girl, octane renderer, ultra detailed, 4k"],
+#    0: ["technical drawing of a atom, detailed map, notes, blueprint, black and white, old, erosion, stains"],
+#    0: ["A photo-real meat chair, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering, trending on cgsociety:2",
+#            "text, words, signatures:-1"],
+#    0: ["old manuscrit, encyclopedia illustrations:1", "page, parchement", "blueprint:2", "canid, canides, very detailed", "pistol:3", "night:1.5", "diagrams showing", "insanely detailed , informative texts, graphs, notes, scribbles:1", "sketch by leonardo davinci:1", "blur::-1"],
+#    0: ["A photo-real a complex, detailed, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering",
+#            "portrait tarkov:2",
+#            "cyberpunk:3",
+#            "mechanical implant:3",
+#            "text, words, signatures:-1"],
+#    0: ["A photo-real a Crossout, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering:3",
+#            "text, words, blur:-1",
+#            "signatures:-1"],
+#    0: ["A photo-real delicate ceramic porcelain sculpture of an ornate detailed kitsune in front of a intricate background by Victo Ngai and takato yamamoto, micro detail, backlit lighting, subsurface scattering, translucent, thin porcelain, octane renderer, colorful, physically based rendering, japanese pottery, trending on cgsociety:2",
+#            "text, words, signatures:-1"],
+}
+image_prompts = {
+     #0:['Nikita-Buyanov.jpg:5',],
+}
+
+#Метод none
+steps = 300 
+width_height_for_512x512_models = [625, 1224] 
+clip_guidance_scale = 21000
+tv_scale = 30000
+range_scale = 30000
+sat_scale = 30000
+cutn_batches = 4
+skip_augs = False
+init_image = "DTliFLmqELY.jpg"
+init_scale = 1000
+skip_steps = 0 
+max_frames = 24
+
+#Метод Video Input
+frames_scale = 15000
+frames_skip_steps = '70%'
+video_init_frames_scale = 15000
+video_init_frames_skip_steps = '70%'
+extract_nth_frame = 1
+video_init_path = "IMG_4149.mp4"
+persistent_frame_output_in_batch_folder = True
+video_init_seed_continuity = False
+video_init_flow_warp = True
+video_init_flow_blend =  0.999
+video_init_check_consistency = False
+video_init_blend_mode = "optical flow"
+width_height_for_256x256_models = [512, 448]
+video_init_steps = 400
+video_init_clip_guidance_scale = 15000
+video_init_tv_scale = 0.1
+video_init_range_scale = 150
+video_init_sat_scale = 50
+video_init_cutn_batches = 1
+video_init_skip_steps = 0
+init_frame = 1
+last_frame = final_framefps = 12
+
+#Метод 2D
+angle = "0:(0)"
+zoom = "0: (1), 10: (0.8)"
+translation_x = "0: (0)"
+translation_y = "0: (0)"
+translation_z = "0: (10.0)"
+rotation_3d_x = "0: (0)"
+rotation_3d_y = "0: (0)"
+rotation_3d_z = "0: (0)"
+midas_depth_model = "dpt_large"
+midas_weight = 0.3
+near_plane = 200
+far_plane = 10000
+fov = 40
+
+#Что-то
+diffusion_model = "portrait_generator_v001" #"portrait_generator_v001" "512x512_diffusion_uncond_finetune_008100"
+use_secondary_model = False 
+diffusion_sampling_mode = 'ddim'
+custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'
+use_checkpoint = True
+check_model_SHA = False
+display_rate = 10
+n_batches = 50
+perlin_init = False
+perlin_mode = 'mixed'
+set_seed = 'random_seed'
+eta = 0.9
+clamp_grad = True
+clamp_max = 0.25
+randomize_class = True
+clip_denoised = False
+fuzzy_prompt = False
+rand_mag = 0.05
+useCPU = False
+interp_spline = 'Linear'
+padding_mode = 'border'
+sampling_mode = 'bicubic'
+key_frames = True 
+batch_name = 'TimeToDisco'
+
+
+#Модели
+ViTB32 = True
+ViTB16 = False
+ViTL14 = True
+ViTL14_336px = False
+RN101 = False
+RN50 = False
+RN50x4 = True
+RN50x16 = False
+RN50x64 = False
+ViTB32_laion2b_e16 = False
+ViTB32_laion400m_e31 = False
+ViTB32_laion400m_32 = False
+ViTB32quickgelu_laion400m_e31 = False
+ViTB32quickgelu_laion400m_e32 = False
+ViTB16_laion400m_e31 = False
+ViTB16_laion400m_e32 = False
+RN50_yffcc15m = False
+RN50_cc12m = False
+RN50_quickgelu_yfcc15m = False
+RN50_quickgelu_cc12m = False
+RN101_yfcc15m = False
+RN101_quickgelu_yfcc15m = False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # %%
 # !! {"metadata":{
 # !!   "id": "view-in-github",
@@ -508,7 +651,7 @@ import pathlib, shutil, os, sys
 #         print("pytorch downgraded.")
 
 #@markdown Check this if you want to use CPU
-useCPU = False #@param {type:"boolean"}
+
 
 if not is_colab:
     # If running locally, there's a good chance your env will need this in order to not crash upon np.matmul() or similar operations.
@@ -644,6 +787,7 @@ if USE_ADABINS:
             createPath(f'{PROJECT_DIR}/pretrained')
             wget("https://cloudflare-ipfs.com/ipfs/Qmd2mMnDLWePKmgfS8m6ntAg4nhV5VkUyAydYBp8cWWeB7/AdaBins_nyu.pt", f'{PROJECT_DIR}/pretrained')
         sys.path.append(f'{PROJECT_DIR}/AdaBins')
+    sys.path.append(f'{PROJECT_DIR}/AdaBins')
     from infer import InferenceHelper
     MAX_ADABINS_AREA = 500000
 
@@ -1226,7 +1370,7 @@ def do_run():
             
             frame1_path = f'{videoFramesFolder}/{frame_num:04}.jpg'
             frame2 = PIL.Image.open(f'{videoFramesFolder}/{frame_num+1:04}.jpg')
-            flo_path = f"/{flo_folder}/{frame1_path.split('/')[-1]}.npy"
+            flo_path = f"{flo_folder}/videoFrames/{frame1_path.split('/')[-1]}.npy"
             
             init_image = 'warped.png'
             print(video_init_flow_blend)
@@ -1824,43 +1968,7 @@ class SecondaryDiffusionImageNet2(nn.Module):
 # !! {"metadata":{
 # !!   "id": "ModelSettings"
 # !! }}
-#@markdown ####**Models Settings (note: For pixel art, the best is pixelartdiffusion_expanded):**
-diffusion_model = "512x512_diffusion_uncond_finetune_008100" #@param ["256x256_diffusion_uncond", "512x512_diffusion_uncond_finetune_008100", "portrait_generator_v001", "pixelartdiffusion_expanded", "pixel_art_diffusion_hard_256", "pixel_art_diffusion_soft_256", "pixelartdiffusion4k", "watercolordiffusion_2", "watercolordiffusion", "PulpSciFiDiffusion", "custom"]
 
-use_secondary_model = True #@param {type: 'boolean'}
-diffusion_sampling_mode = 'ddim' #@param ['plms','ddim']
-#@markdown #####**Custom model:**
-custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'#@param {type: 'string'}
-
-#@markdown #####**CLIP settings:**
-use_checkpoint = True #@param {type: 'boolean'}
-ViTB32 = True #@param{type:"boolean"}
-ViTB16 = True #@param{type:"boolean"}
-ViTL14 = False #@param{type:"boolean"}
-ViTL14_336px = False #@param{type:"boolean"}
-RN101 = False #@param{type:"boolean"}
-RN50 = True #@param{type:"boolean"}
-RN50x4 = False #@param{type:"boolean"}
-RN50x16 = False #@param{type:"boolean"}
-RN50x64 = False #@param{type:"boolean"}
-
-#@markdown #####**OpenCLIP settings:**
-ViTB32_laion2b_e16 = False #@param{type:"boolean"}
-ViTB32_laion400m_e31 = False #@param{type:"boolean"}
-ViTB32_laion400m_32 = False #@param{type:"boolean"}
-ViTB32quickgelu_laion400m_e31 = False #@param{type:"boolean"}
-ViTB32quickgelu_laion400m_e32 = False #@param{type:"boolean"}
-ViTB16_laion400m_e31 = False #@param{type:"boolean"}
-ViTB16_laion400m_e32 = False #@param{type:"boolean"}
-RN50_yffcc15m = False #@param{type:"boolean"}
-RN50_cc12m = False #@param{type:"boolean"}
-RN50_quickgelu_yfcc15m = False #@param{type:"boolean"}
-RN50_quickgelu_cc12m = False #@param{type:"boolean"}
-RN101_yfcc15m = False #@param{type:"boolean"}
-RN101_quickgelu_yfcc15m = False #@param{type:"boolean"}
-
-#@markdown If you're having issues with model downloads, check this to compare SHA's:
-check_model_SHA = False #@param{type:"boolean"}
 
 diff_model_map = {
     '256x256_diffusion_uncond': { 'downloaded': False, 'sha': 'a37c32fffd316cd494cf3f35b339936debdc1576dad13fe57c42399a5dbc78b1', 'uri_list': ['https://openaipublic.blob.core.windows.net/diffusion/jul-2021/256x256_diffusion_uncond.pt', 'https://www.dropbox.com/s/9tqnqo930mpnpcn/256x256_diffusion_uncond.pt'] },
@@ -1874,6 +1982,7 @@ diff_model_map = {
     'watercolordiffusion': { 'downloaded': False, 'sha': 'a3e6522f0c8f278f90788298d66383b11ac763dd5e0d62f8252c962c23950bd6', 'uri_list': ['https://huggingface.co/KaliYuga/watercolordiffusion/resolve/main/watercolordiffusion.pt'] },
     'PulpSciFiDiffusion': { 'downloaded': False, 'sha': 'b79e62613b9f50b8a3173e5f61f0320c7dbb16efad42a92ec94d014f6e17337f', 'uri_list': ['https://huggingface.co/KaliYuga/PulpSciFiDiffusion/resolve/main/PulpSciFiDiffusion.pt'] },
     'secondary': { 'downloaded': False, 'sha': '983e3de6f95c88c81b2ca7ebb2c217933be1973b1ff058776b970f901584613a', 'uri_list': ['https://the-eye.eu/public/AI/models/v-diffusion/secondary_model_imagenet_2.pth', 'https://ipfs.pollinations.ai/ipfs/bafybeibaawhhk7fhyhvmm7x24zwwkeuocuizbqbcg5nqx64jq42j75rdiy/secondary_model_imagenet_2.pth'] },
+    'ema_0.9999_165000': { 'downloaded': False, 'sha': '3bc39e28fd9690dafbbee83cc08d089a3640eca8ed4d14280c4a9d342c56fd7f', 'uri_list': ['https://huggingface.co/felipe3dartist/portrait_generator_v1.5/resolve/main/ema_0.9999_165000.pt'] },
 }
 
 kaliyuga_pixel_art_model_names = ['pixelartdiffusion_expanded', 'pixel_art_diffusion_hard_256', 'pixel_art_diffusion_soft_256', 'pixelartdiffusion4k', 'PulpSciFiDiffusion']
@@ -2073,36 +2182,7 @@ if diffusion_model == 'custom':
 # !! {"metadata":{
 # !!   "id": "BasicSettings"
 # !! }}
-#@markdown ####**Basic Settings:**
-batch_name = 'TimeToDisco' #@param{type: 'string'}
-steps = 250 #@param [25,50,100,150,250,500,1000]{type: 'raw', allow-input: true}
-width_height_for_512x512_models = [1280, 768] #@param{type: 'raw'}
-clip_guidance_scale = 5000 #@param{type: 'number'}
-tv_scale = 0#@param{type: 'number'}
-range_scale = 150#@param{type: 'number'}
-sat_scale = 0#@param{type: 'number'}
-cutn_batches = 4#@param{type: 'number'}
-skip_augs = False#@param{type: 'boolean'}
 
-#@markdown ####**Image dimensions to be used for 256x256 models (e.g. pixelart models):**
-width_height_for_256x256_models = [512, 448] #@param{type: 'raw'}
-
-#@markdown ####**Video Init Basic Settings:**
-video_init_steps = 100 #@param [25,50,100,150,250,500,1000]{type: 'raw', allow-input: true}
-video_init_clip_guidance_scale = 1000 #@param{type: 'number'}
-video_init_tv_scale = 0.1#@param{type: 'number'}
-video_init_range_scale = 150#@param{type: 'number'}
-video_init_sat_scale = 300#@param{type: 'number'}
-video_init_cutn_batches = 4#@param{type: 'number'}
-video_init_skip_steps = 50 #@param{type: 'integer'}
-
-#@markdown ---
-
-#@markdown ####**Init Image Settings:**
-init_image = None #@param{type: 'string'}
-init_scale = 1000 #@param{type: 'integer'}
-skip_steps = 10 #@param{type: 'integer'}
-#@markdown *Make sure you set skip_steps to ~50% of your steps if you want to use an init image.*
 
 width_height = width_height_for_256x256_models if diffusion_model in diffusion_models_256x256_list else width_height_for_512x512_models
 
@@ -2130,27 +2210,14 @@ createPath(batchFolder)
 # !!   "id": "AnimSettings"
 # !! }}
 #@markdown ####**Animation Mode:**
-animation_mode = 'None' #@param ['None', '2D', '3D', 'Video Input'] {type:'string'}
+
 #@markdown *For animation, you probably want to turn `cutn_batches` to 1 to make it quicker.*
 
 
 #@markdown ---
 
 #@markdown ####**Video Input Settings:**
-if is_colab:
-    video_init_path = "/content/drive/MyDrive/init.mp4" #@param {type: 'string'}
-else:
-    video_init_path = "init.mp4" #@param {type: 'string'}
-extract_nth_frame = 2 #@param {type: 'number'}
-persistent_frame_output_in_batch_folder = True #@param {type: 'boolean'}
-video_init_seed_continuity = False #@param {type: 'boolean'}
-#@markdown #####**Video Optical Flow Settings:**
-video_init_flow_warp = True #@param {type: 'boolean'}
-# Call optical flow from video frames and warp prev frame with flow
-video_init_flow_blend =  0.999#@param {type: 'number'} #0 - take next frame, 1 - take prev warped frame
-video_init_check_consistency = False #Insert param here when ready
-video_init_blend_mode = "optical flow" #@param ['None', 'linear', 'optical flow']
-# Call optical flow from video frames and warp prev frame with flow
+
 if animation_mode == "Video Input":
     if persistent_frame_output_in_batch_folder or (not is_colab): #suggested by Chris the Wizard#8082 at discord
         videoFramesFolder = f'{batchFolder}/videoFrames'
@@ -2177,28 +2244,12 @@ if animation_mode == "Video Input":
 #@markdown `zoom` is a multiplier of dimensions, 1 is no zoom.
 #@markdown All rotations are provided in degrees.
 
-key_frames = True #@param {type:"boolean"}
-max_frames = 10000#@param {type:"number"}
+
 
 if animation_mode == "Video Input":
     max_frames = len(glob(f'{videoFramesFolder}/*.jpg'))
 
-interp_spline = 'Linear' #Do not change, currently will not look good. param ['Linear','Quadratic','Cubic']{type:"string"}
-angle = "0:(0)"#@param {type:"string"}
-zoom = "0: (1), 10: (1.05)"#@param {type:"string"}
-translation_x = "0: (0)"#@param {type:"string"}
-translation_y = "0: (0)"#@param {type:"string"}
-translation_z = "0: (10.0)"#@param {type:"string"}
-rotation_3d_x = "0: (0)"#@param {type:"string"}
-rotation_3d_y = "0: (0)"#@param {type:"string"}
-rotation_3d_z = "0: (0)"#@param {type:"string"}
-midas_depth_model = "dpt_large"#@param {type:"string"}
-midas_weight = 0.3#@param {type:"number"}
-near_plane = 200#@param {type:"number"}
-far_plane = 10000#@param {type:"number"}
-fov = 40#@param {type:"number"}
-padding_mode = 'border'#@param {type:"string"}
-sampling_mode = 'bicubic'#@param {type:"string"}
+
 
 #======= TURBO MODE
 #@markdown ---
@@ -2220,17 +2271,7 @@ if turbo_mode and animation_mode != '3D':
 
 #@markdown ---
 
-#@markdown ####**Coherency Settings:**
-#@markdown `frame_scale` tries to guide the new frame to looking like the old one. A good default is 1500.
-frames_scale = 1500 #@param{type: 'integer'}
-#@markdown `frame_skip_steps` will blur the previous frame - higher values will flicker less but struggle to add enough new detail to zoom into.
-frames_skip_steps = '60%' #@param ['40%', '50%', '60%', '70%', '80%'] {type: 'string'}
 
-#@markdown ####**Video Init Coherency Settings:**
-#@markdown `frame_scale` tries to guide the new frame to looking like the old one. A good default is 1500.
-video_init_frames_scale = 15000 #@param{type: 'integer'}
-#@markdown `frame_skip_steps` will blur the previous frame - higher values will flicker less but struggle to add enough new detail to zoom into.
-video_init_frames_skip_steps = '70%' #@param ['40%', '50%', '60%', '70%', '80%'] {type: 'string'}
 
 #======= VR MODE
 #@markdown ---
@@ -2681,7 +2722,7 @@ if animation_mode == "Video Input":
         print('video_init_flow_warp not set, skipping')
 
     if (animation_mode == 'Video Input') and (video_init_flow_warp):
-        flows = glob(flo_folder+'/*.*')
+        flows = glob(flo_folder+'/videoFrames/*.*')
         if (len(flows)>0) and not force_flow_generation:
             print(f'Skipping flow generation:\nFound {len(flows)} existing flow files in current working folder: {flo_folder}.\nIf you wish to generate new flow files, check force_flow_generation and run this cell again.')
     
@@ -2769,19 +2810,7 @@ if intermediate_saves and intermediates_in_subfolder is True:
 
 #@markdown *Perlin init will replace your init, so uncheck if using one.*
 
-perlin_init = False  #@param{type: 'boolean'}
-perlin_mode = 'mixed' #@param ['mixed', 'color', 'gray']
-set_seed = 'random_seed' #@param{type: 'string'}
-eta = 0.8 #@param{type: 'number'}
-clamp_grad = True #@param{type: 'boolean'}
-clamp_max = 0.05 #@param{type: 'number'}
 
-
-### EXTRA ADVANCED SETTINGS:
-randomize_class = True
-clip_denoised = False
-fuzzy_prompt = False
-rand_mag = 0.05
 
 
 #@markdown ---
@@ -2840,14 +2869,9 @@ transformation_percent = [0.09] #@param
 # !!   "id": "Prompts"
 # !! }}
 # Note: If using a pixelart diffusion model, try adding "#pixelart" to the end of the prompt for a stronger effect. It'll tend to work a lot better!
-text_prompts = {
-    0: ["A beautiful painting of a singular lighthouse, shining its light across a tumultuous sea of blood by greg rutkowski and thomas kinkade, Trending on artstation.", "yellow color scheme"],
-    100: ["This set of prompts start at frame 100","This prompt has weight five:5"],
-}
 
-image_prompts = {
-    # 0:['ImagePromptsWorkButArentVeryGood.png:2',],
-}
+
+
 
 # %%
 # !! {"metadata":{
@@ -2863,8 +2887,7 @@ image_prompts = {
 # !! }}
 #@title Do the Run!
 #@markdown `n_batches` ignored with animation modes.
-display_rate = 20 #@param{type: 'number'}
-n_batches = 50 #@param{type: 'number'}
+
 
 if animation_mode == 'Video Input':
     steps = video_init_steps
@@ -2904,7 +2927,7 @@ if animation_mode == 'Video Input':
     frames = sorted(glob(in_path+'/*.*'));
     if len(frames)==0: 
         sys.exit("ERROR: 0 frames found.\nPlease check your video input path and rerun the video settings cell.")
-    flows = glob(flo_folder+'/*.*')
+    flows = glob(flo_folder+'/videoFrames/*.*')
     if (len(flows)==0) and video_init_flow_warp:
         sys.exit("ERROR: 0 flow files found.\nPlease rerun the flow generation cell.")
 
@@ -3109,7 +3132,7 @@ if animation_mode == 'Video Input':
     frames = sorted(glob(in_path+'/*.*'));
     if len(frames)==0: 
         sys.exit("ERROR: 0 frames found.\nPlease check your video input path and rerun the video settings cell.")
-    flows = glob(flo_folder+'/*.*')
+    flows = glob(flo_folder+'/videoFrames/*.*')
     if (len(flows)==0) and video_init_flow_warp:
         sys.exit("ERROR: 0 flow files found.\nPlease rerun the flow generation cell.")
 
@@ -3130,9 +3153,7 @@ else:
     final_frame = 'final_frame'
 
 
-    init_frame = 1#@param {type:"number"} This is the frame where the video will start
-    last_frame = final_frame#@param {type:"number"} You can change i to the number of the last frame you want to generate. It will raise an error if that number of frames does not exist.
-    fps = 12#@param {type:"number"}
+    
     # view_video_in_cell = True #@param {type: 'boolean'}
 
     frames = []
@@ -3161,7 +3182,7 @@ else:
             frame1 = PIL.Image.open(frame1_path)
             frame2 = PIL.Image.open(frame2_path)
             frame1_stem = f"{(int(frame1_path.split('/')[-1].split('_')[-1][:-4])+1):04}.jpg"
-            flo_path = f"/{flo_folder}/{frame1_stem}.npy"
+            flo_path = f"{flo_folder}/videoFrames/{frame1_stem}.npy"
             weights_path = None
             if video_init_check_consistency:
                 # TBD
