@@ -32,7 +32,7 @@ range_scale = 30000
 sat_scale = 30000
 cutn_batches = 4
 skip_augs = False
-init_image = "DTliFLmqELY.jpg"
+init_image = "none"
 init_scale = 1000
 skip_steps = 0 
 max_frames = 24
@@ -77,7 +77,7 @@ far_plane = 10000
 fov = 40
 
 #Что-то
-diffusion_model = "portrait_generator_v001" #"portrait_generator_v001" "512x512_diffusion_uncond_finetune_008100"
+diffusion_model = "512x512_diffusion_uncond_finetune_008100" #"portrait_generator_v001" "512x512_diffusion_uncond_finetune_008100"
 use_secondary_model = False 
 diffusion_sampling_mode = 'ddim'
 custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'
