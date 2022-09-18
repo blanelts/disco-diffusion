@@ -3213,7 +3213,7 @@ else:
         '-vcodec',
         'png',
         '-r',
-        str(fps),
+#        str(fps),
         '-start_number',
         str(init_frame),
         '-i',
