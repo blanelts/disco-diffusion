@@ -2014,7 +2014,7 @@ def download_model(diffusion_model_name, uri_index=0):
                 print(f"{diffusion_model_name} SHA doesn't match. Will redownload it.")
         elif os.path.exists(model_local_path) and not check_model_SHA or diff_model_map[diffusion_model_name]['downloaded']:
             print(f'{diffusion_model_name} already downloaded. If the file is corrupt, enable check_model_SHA.')
-            diff_model_map[diffusion_model_name]['downloaded'] = False
+            diff_model_map[diffusion_model_name]['downloaded'] = True
 
         if not diff_model_map[diffusion_model_name]['downloaded']:
             for model_uri in diff_model_map[diffusion_model_name]['uri_list']:
