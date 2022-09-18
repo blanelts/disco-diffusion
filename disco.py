@@ -83,7 +83,7 @@ use_secondary_model = False
 diffusion_sampling_mode = 'ddim'
 custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'
 use_checkpoint = True
-check_model_SHA = True
+check_model_SHA = False
 display_rate = 10
 perlin_init = False
 perlin_mode = 'mixed'
@@ -2014,7 +2014,7 @@ def download_model(diffusion_model_name, uri_index=0):
                 print(f"{diffusion_model_name} SHA doesn't match. Will redownload it.")
         elif os.path.exists(model_local_path) and not check_model_SHA or diff_model_map[diffusion_model_name]['downloaded']:
             print(f'{diffusion_model_name} already downloaded. If the file is corrupt, enable check_model_SHA.')
-            diff_model_map[diffusion_model_name]['downloaded'] = True
+            diff_model_map[diffusion_model_name]['downloaded'] = False
 
         if not diff_model_map[diffusion_model_name]['downloaded']:
             for model_uri in diff_model_map[diffusion_model_name]['uri_list']:
