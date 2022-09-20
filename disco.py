@@ -1,5 +1,5 @@
 from sys import argv
-m_none, m_text_prompts, m_steps, m_n_batches, m_clip_guidance_scale, m_height, m_width = argv
+m_none, m_text_prompts, m_steps, m_cutn_batches, m_clip_guidance_scale, m_height, m_width = argv
 #Выбор метода
 animation_mode = 'None' #['None', '2D', '3D', 'Video Input']
 #Описание
@@ -26,14 +26,14 @@ image_prompts = {
 }
 
 #Метод none
-n_batches = int(m_n_batches)
+n_batches = 1
 steps = int(m_steps) 
 width_height_for_512x512_models = [int(m_width), int(m_height)] 
 clip_guidance_scale = int(m_clip_guidance_scale)
 tv_scale = 30000
 range_scale = 30000
 sat_scale = 30000
-cutn_batches = 4
+cutn_batches = int(m_cutn_batches)
 skip_augs = False
 init_image = "none"
 init_scale = 1000
