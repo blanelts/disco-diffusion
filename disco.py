@@ -1,5 +1,5 @@
 from sys import argv
-m_text_prompts, m_steps, m_n_batches, m_clip_guidance_scale, m_height, m_width = argv
+m_none, m_text_prompts, m_steps, m_n_batches, m_clip_guidance_scale, m_height, m_width = argv
 #Выбор метода
 animation_mode = 'None' #['None', '2D', '3D', 'Video Input']
 #Описание
