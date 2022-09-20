@@ -26,10 +26,10 @@ image_prompts = {
 }
 
 #Метод none
-n_batches = m_n_batches
-steps = m_steps 
-width_height_for_512x512_models = [m_width, m_height] 
-clip_guidance_scale = m_clip_guidance_scale
+n_batches = int(m_n_batches)
+steps = int(m_steps) 
+width_height_for_512x512_models = [int(m_width), int(m_height)] 
+clip_guidance_scale = int(m_clip_guidance_scale)
 tv_scale = 30000
 range_scale = 30000
 sat_scale = 30000
