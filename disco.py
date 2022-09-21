@@ -1,5 +1,5 @@
 from sys import argv
-m_none, m_text_prompts, m_steps, m_cutn_batches, m_clip_guidance_scale, m_height, m_width = argv
+m_none, m_text_prompts, m_steps, m_cutn_batches, m_clip_guidance_scale, m_height, m_width, m_batch_name = argv
 #Выбор метода
 animation_mode = 'None' #['None', '2D', '3D', 'Video Input']
 #Описание
@@ -102,7 +102,7 @@ interp_spline = 'Linear'
 padding_mode = 'border'
 sampling_mode = 'bicubic'
 key_frames = True 
-batch_name = 'TimeToDisco'
+batch_name = m_batch_name
 
 
 #Модели
